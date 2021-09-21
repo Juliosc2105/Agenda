@@ -30,7 +30,7 @@ namespace Agenda
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -61,21 +61,22 @@ namespace Agenda
             this.label1.Text = "Agenda | 2021";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // button1
+            // btnAtualizar
             // 
-            this.button1.Location = new System.Drawing.Point(12, 385);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(135, 53);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Atualizar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Location = new System.Drawing.Point(12, 385);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(135, 53);
+            this.btnAtualizar.TabIndex = 6;
+            this.btnAtualizar.Text = "Atualizar";
+            this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // btnExcluir
             // 
             this.btnExcluir.Location = new System.Drawing.Point(153, 385);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(135, 53);
-            this.btnExcluir.TabIndex = 2;
+            this.btnExcluir.TabIndex = 7;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -85,7 +86,7 @@ namespace Agenda
             this.button3.Location = new System.Drawing.Point(294, 385);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(135, 53);
-            this.button3.TabIndex = 3;
+            this.button3.TabIndex = 8;
             this.button3.Text = "Importar";
             this.button3.UseVisualStyleBackColor = true;
             // 
@@ -94,7 +95,7 @@ namespace Agenda
             this.button4.Location = new System.Drawing.Point(435, 385);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(135, 53);
-            this.button4.TabIndex = 4;
+            this.button4.TabIndex = 9;
             this.button4.Text = "Exportar";
             this.button4.UseVisualStyleBackColor = true;
             // 
@@ -103,8 +104,8 @@ namespace Agenda
             this.button5.Location = new System.Drawing.Point(576, 385);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(135, 53);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Limpar Agenda";
+            this.button5.TabIndex = 10;
+            this.button5.Text = "Reset";
             this.button5.UseVisualStyleBackColor = true;
             // 
             // btbAdicionar
@@ -112,7 +113,7 @@ namespace Agenda
             this.btbAdicionar.Location = new System.Drawing.Point(153, 321);
             this.btbAdicionar.Name = "btbAdicionar";
             this.btbAdicionar.Size = new System.Drawing.Size(135, 53);
-            this.btbAdicionar.TabIndex = 8;
+            this.btbAdicionar.TabIndex = 4;
             this.btbAdicionar.Text = "Adicionar";
             this.btbAdicionar.UseVisualStyleBackColor = true;
             this.btbAdicionar.Click += new System.EventHandler(this.btbAdicionar_Click);
@@ -122,7 +123,7 @@ namespace Agenda
             this.btnNovo.Location = new System.Drawing.Point(12, 321);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(135, 53);
-            this.btnNovo.TabIndex = 7;
+            this.btnNovo.TabIndex = 5;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
@@ -143,7 +144,7 @@ namespace Agenda
             this.txtNome.Location = new System.Drawing.Point(12, 103);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(276, 26);
-            this.txtNome.TabIndex = 10;
+            this.txtNome.TabIndex = 1;
             // 
             // txtFone
             // 
@@ -151,7 +152,7 @@ namespace Agenda
             this.txtFone.Location = new System.Drawing.Point(12, 184);
             this.txtFone.Name = "txtFone";
             this.txtFone.Size = new System.Drawing.Size(276, 26);
-            this.txtFone.TabIndex = 12;
+            this.txtFone.TabIndex = 2;
             // 
             // label3
             // 
@@ -184,7 +185,7 @@ namespace Agenda
             this.cbxSexo.Location = new System.Drawing.Point(12, 262);
             this.cbxSexo.Name = "cbxSexo";
             this.cbxSexo.Size = new System.Drawing.Size(276, 28);
-            this.cbxSexo.TabIndex = 14;
+            this.cbxSexo.TabIndex = 3;
             // 
             // button8
             // 
@@ -195,7 +196,7 @@ namespace Agenda
             this.button8.Location = new System.Drawing.Point(16, 44);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 15;
+            this.button8.TabIndex = 12;
             this.button8.Text = "Minimizar";
             this.button8.UseVisualStyleBackColor = false;
             // 
@@ -208,7 +209,7 @@ namespace Agenda
             this.button9.Location = new System.Drawing.Point(97, 44);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 16;
+            this.button9.TabIndex = 13;
             this.button9.Text = "Fechar";
             this.button9.UseVisualStyleBackColor = false;
             // 
@@ -220,7 +221,7 @@ namespace Agenda
             this.lstAgenda.Location = new System.Drawing.Point(294, 84);
             this.lstAgenda.Name = "lstAgenda";
             this.lstAgenda.Size = new System.Drawing.Size(417, 279);
-            this.lstAgenda.TabIndex = 17;
+            this.lstAgenda.TabIndex = 11;
             // 
             // Form1
             // 
@@ -242,7 +243,7 @@ namespace Agenda
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnExcluir);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -257,7 +258,7 @@ namespace Agenda
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
