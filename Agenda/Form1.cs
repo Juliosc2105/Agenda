@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.IO;
+
 namespace Agenda
 {
     public partial class Form1 : Form
@@ -30,7 +32,6 @@ namespace Agenda
 
         private void btbAdicionar_Click(object sender, EventArgs e)
         {
-            btnAtualizar.Text = "Atualizar";
             if ((txtNome.Text != "" ) && (txtFone.Text != "" ) && (cbxSexo.Text != "" ))
             {
                 if (MessageBox.Show(
@@ -55,7 +56,6 @@ namespace Agenda
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            btnAtualizar.Text = "Atualizar";
             if (MessageBox.Show(
                 "Deseja limpar todos os campos?",
                 "Informação",
@@ -104,6 +104,10 @@ namespace Agenda
                     cbxSexo.Text = campo[2];
 
                     btnAtualizar.Text = "Salvar";
+                    btnNovo.Enabled = false;
+                    btbAdicionar.Enabled = false;
+                    btnExcluir.Enabled = false;
+                    
                 }
                 else
                 {
@@ -122,6 +126,10 @@ namespace Agenda
                     MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     btnAtualizar.Text = "Atualizar";
+                    btnNovo.Enabled = true; 
+                    btbAdicionar.Enabled = true;
+                    btnExcluir.Enabled = true;
+
                     lstAgenda.Items.RemoveAt(indiceSelecionado);
                     lstAgenda.Items.Insert(indiceSelecionado, txtNome.Text+";"+txtFone.Text+";"+cbxSexo.Text);
                     indiceSelecionado = -1;
@@ -131,6 +139,99 @@ namespace Agenda
                     txtNome.Focus();
                 }
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FileInfo salvarArquivo = new FileInfo(@".\agenda.txt");
+            if (!salvarArquivo.Exists)
+            {
+                using (StreamWriter sa = salvarArquivo.CreateText())
+                {
+                    for(int i = 0; i < lstAgenda.Items.Count; i++)
+                    {
+                        sa.WriteLine(lstAgenda.Items[i].ToString());
+                    }
+                }
+            }
+            else
+            {
+                if (MessageBox.Show(
+                    "O arquivo " + salvarArquivo+" foi encontrado. Substituir?",
+                    "Informação",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    using (StreamWriter sa = salvarArquivo.CreateText())
+                    {
+                        for (int i = 0; i < lstAgenda.Items.Count; i++)
+                        {
+                            sa.WriteLine(lstAgenda.Items[i].ToString());
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnImportar_Click(object sender, EventArgs e)
+        {
+            FileInfo abrirArquivo = new FileInfo(@".\agenda.txt");
+            if (abrirArquivo.Exists)
+            {
+                using (StreamReader aa = abrirArquivo.OpenText())
+                {
+                    lstAgenda.Items.Clear();
+
+                    string linha = "";
+                    while ((linha = aa.ReadLine()) != null)
+                    {
+                        lstAgenda.Items.Add(linha.ToString());
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show(
+                    "O arquivo" + abrirArquivo + " não foi encontrado",
+                    "Informação",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            btnImportar.PerformClick();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(
+                    "Desseja limpar sua agenda?",
+                    "Informação",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                lstAgenda.Items.Clear();
+            } 
+            else
+            {
+                MessageBox.Show("Processo de limpeza cancelado",
+                    "Informação",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

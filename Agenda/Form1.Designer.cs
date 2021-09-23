@@ -32,7 +32,7 @@ namespace Agenda
             this.label1 = new System.Windows.Forms.Label();
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnImportar = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.btbAdicionar = new System.Windows.Forms.Button();
@@ -81,14 +81,15 @@ namespace Agenda
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
-            // button3
+            // btnImportar
             // 
-            this.button3.Location = new System.Drawing.Point(294, 385);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(135, 53);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Importar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnImportar.Location = new System.Drawing.Point(294, 385);
+            this.btnImportar.Name = "btnImportar";
+            this.btnImportar.Size = new System.Drawing.Size(135, 53);
+            this.btnImportar.TabIndex = 8;
+            this.btnImportar.Text = "Importar";
+            this.btnImportar.UseVisualStyleBackColor = true;
+            this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
             // 
             // button4
             // 
@@ -98,6 +99,7 @@ namespace Agenda
             this.button4.TabIndex = 9;
             this.button4.Text = "Exportar";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -107,6 +109,7 @@ namespace Agenda
             this.button5.TabIndex = 10;
             this.button5.Text = "Reset";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // btbAdicionar
             // 
@@ -199,6 +202,7 @@ namespace Agenda
             this.button8.TabIndex = 12;
             this.button8.Text = "Minimizar";
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button9
             // 
@@ -212,6 +216,7 @@ namespace Agenda
             this.button9.TabIndex = 13;
             this.button9.Text = "Fechar";
             this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // lstAgenda
             // 
@@ -241,7 +246,7 @@ namespace Agenda
             this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnImportar);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.label1);
@@ -250,6 +255,7 @@ namespace Agenda
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,7 +266,7 @@ namespace Agenda
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnExcluir;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnImportar;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btbAdicionar;
